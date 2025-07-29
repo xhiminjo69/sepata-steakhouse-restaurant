@@ -37,7 +37,7 @@ const Home = () => {
       {/* Hero Section */}
       <section className="hero" ref={heroRef}>
         <div className="hero-background">
-          <img src="/LOGO SEPATA.jpg" alt="Sëpata Steak House" />
+          <img src={`${process.env.PUBLIC_URL}/LOGO SEPATA.jpg`} alt="Sëpata Steak House" />
           <div className="hero-overlay"></div>
         </div>
         <motion.div 
@@ -85,7 +85,7 @@ const Home = () => {
               <Link to="/about" className="btn-secondary">Read More</Link>
             </div>
             <div className="about-image">
-              <img src="/sepatarestaurant_1751706218_3669900208993574167_65649597383.webp" alt="Restaurant Interior" />
+              <img src={`${process.env.PUBLIC_URL}/sepatarestaurant_1751706218_3669900208993574167_65649597383.webp`} alt="Restaurant Interior" />
             </div>
           </motion.div>
         </div>
@@ -96,7 +96,7 @@ const Home = () => {
         className="menu-preview section-padding" 
         ref={menuRef}
         style={{
-          backgroundImage: `url('/sepatarestaurant_1747591912_3635386913221966564_65649597383.webp')`
+          backgroundImage: `url('${process.env.PUBLIC_URL}/sepatarestaurant_1747591912_3635386913221966564_65649597383.webp')`
         }}
       >
         <div className="container">
@@ -144,16 +144,16 @@ const Home = () => {
             <h2>Experience Sëpata</h2>
             <div className="gallery-grid">
               <div className="gallery-item">
-                <img src="/sepatarestaurant_1747758600_3636673091845828801_65649597383.jpg" alt="Signature Dish" />
+                <img src={`${process.env.PUBLIC_URL}/sepatarestaurant_1747758600_3636673091845828801_65649597383.jpg`} alt="Signature Dish" />
               </div>
               <div className="gallery-item">
-                <img src="/Screenshot 2025-07-29 180021.jpg" alt="Culinary Artistry" />
+                <img src={`${process.env.PUBLIC_URL}/Screenshot 2025-07-29 180021.jpg`} alt="Culinary Artistry" />
               </div>
               <div className="gallery-item">
-                <img src="/Screenshot 2025-07-29 180135.jpg" alt="Premium Dining" />
+                <img src={`${process.env.PUBLIC_URL}/Screenshot 2025-07-29 180135.jpg`} alt="Premium Dining" />
               </div>
               <div className="gallery-item">
-                <img src="/Screenshot 2025-07-29 180305.jpg" alt="Scenic Dining" />
+                <img src={`${process.env.PUBLIC_URL}/Screenshot 2025-07-29 180305.jpg`} alt="Scenic Dining" />
               </div>
             </div>
             <Link to="/gallery" className="btn-secondary">View Gallery</Link>
@@ -163,7 +163,7 @@ const Home = () => {
 
       {/* Reservation CTA */}
       <section className="reservation-cta" style={{
-        backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/sepatarestaurant_1753090202_3680182292693909471_65649597383.webp')`,
+        backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('${process.env.PUBLIC_URL}/sepatarestaurant_1753090202_3680182292693909471_65649597383.webp')`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat'

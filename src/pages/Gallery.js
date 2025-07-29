@@ -16,91 +16,91 @@ const Gallery = () => {
 
   const galleryImages = [
     {
-      src: '/sepatarestaurant_1747758600_3636673091845828801_65649597383.jpg',
+      src: `${process.env.PUBLIC_URL}/sepatarestaurant_1747758600_3636673091845828801_65649597383.jpg`,
       alt: 'Signature Steak Dish',
       category: 'food',
       title: 'Premium Ribeye Steak'
     },
     {
-      src: '/sepatarestaurant_1747758600_3636673091845908237_65649597383.jpg',
+      src: `${process.env.PUBLIC_URL}/sepatarestaurant_1747758600_3636673091845908237_65649597383.jpg`,
       alt: 'Gourmet Plating',
       category: 'food',
       title: 'Artisanal Presentation'
     },
     {
-      src: '/sepatarestaurant_1751706218_3669900208993574167_65649597383.webp',
+      src: `${process.env.PUBLIC_URL}/sepatarestaurant_1751706218_3669900208993574167_65649597383.webp`,
       alt: 'Restaurant Interior',
       category: 'interior',
       title: 'Elegant Dining Room'
     },
     {
-      src: '/sepatarestaurant_1751706218_3669900209010297573_65649597383.webp',
+      src: `${process.env.PUBLIC_URL}/sepatarestaurant_1751706218_3669900209010297573_65649597383.webp`,
       alt: 'Dining Ambiance',
       category: 'interior',
       title: 'Sophisticated Atmosphere'
     },
     {
-      src: '/sepatarestaurant_1752076851_3673008916742566714_65649597383.webp',
+      src: `${process.env.PUBLIC_URL}/sepatarestaurant_1752076851_3673008916742566714_65649597383.webp`,
       alt: 'Sea View Dining',
       category: 'views',
       title: 'Adriatic Sea Views'
     },
     {
-      src: '/sepatarestaurant_1753090202_3680182292693909471_65649597383.webp',
+      src: `${process.env.PUBLIC_URL}/sepatarestaurant_1753090202_3680182292693909471_65649597383.webp`,
       alt: 'Fine Dining Experience',
       category: 'interior',
       title: 'Intimate Setting'
     },
     {
-      src: '/sepatarestaurant_1753090202_3680182292735638364_65649597383.webp',
+      src: `${process.env.PUBLIC_URL}/sepatarestaurant_1753090202_3680182292735638364_65649597383.webp`,
       alt: 'Chef at Work',
       category: 'kitchen',
       title: 'Culinary Artistry'
     },
     {
-      src: '/sepatarestaurant_1747591912_3635386913221966564_65649597383.webp',
+      src: `${process.env.PUBLIC_URL}/sepatarestaurant_1747591912_3635386913221966564_65649597383.webp`,
       alt: 'Restaurant Exterior',
       category: 'exterior',
       title: 'Lungomare Location'
     },
     {
-      src: '/Hero section.jpg',
+      src: `${process.env.PUBLIC_URL}/Hero section.jpg`,
       alt: 'Restaurant Hero',
       category: 'interior',
       title: 'Welcome to Sëpata'
     },
     {
-      src: '/Screenshot 2025-07-29 175943.jpg',
+      src: `${process.env.PUBLIC_URL}/Screenshot 2025-07-29 175943.jpg`,
       alt: 'Restaurant Experience',
       category: 'interior',
       title: 'Dining Excellence'
     },
     {
-      src: '/Screenshot 2025-07-29 180021.jpg',
+      src: `${process.env.PUBLIC_URL}/Screenshot 2025-07-29 180021.jpg`,
       alt: 'Culinary Artistry',
       category: 'food',
       title: 'Gourmet Creations'
     },
     {
-      src: '/Screenshot 2025-07-29 180135.jpg',
+      src: `${process.env.PUBLIC_URL}/Screenshot 2025-07-29 180135.jpg`,
       alt: 'Premium Dining',
       category: 'interior',
       title: 'Elegant Atmosphere'
     },
     {
-      src: '/Screenshot 2025-07-29 180217.jpg',
+      src: `${process.env.PUBLIC_URL}/Screenshot 2025-07-29 180217.jpg`,
       alt: 'Restaurant Ambiance',
       category: 'interior',
       title: 'Sophisticated Setting'
     },
     {
-      src: '/Screenshot 2025-07-29 180305.jpg',
+      src: `${process.env.PUBLIC_URL}/Screenshot 2025-07-29 180305.jpg`,
       alt: 'Fine Dining Experience',
       category: 'views',
       title: 'Scenic Dining'
     },
     {
-      src: '/Screenshot 2025-07-29 180439.jpg',
+      src: `${process.env.PUBLIC_URL}/Screenshot 2025-07-29 180439.jpg`,
       alt: 'Restaurant Details',
       category: 'interior',
       title: 'Attention to Detail'
@@ -154,7 +154,7 @@ const Gallery = () => {
       {/* Hero Section */}
       <section className="gallery-hero" ref={heroRef}>
         <div className="gallery-hero-background">
-          <img src="/sepatarestaurant_1752076851_3673008916742566714_65649597383.webp" alt="Gallery Hero" />
+          <img src={`${process.env.PUBLIC_URL}/sepatarestaurant_1752076851_3673008916742566714_65649597383.webp`} alt="Gallery Hero" />
           <div className="gallery-hero-overlay"></div>
         </div>
         <motion.div 

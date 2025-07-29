@@ -66,7 +66,7 @@ const Contact = () => {
       {/* Hero Section */}
       <section className="contact-hero" ref={heroRef}>
         <div className="contact-hero-background">
-          <img src="/sepatarestaurant_1751706218_3669900208993574167_65649597383.webp" alt="Contact Us" />
+          <img src={`${process.env.PUBLIC_URL}/sepatarestaurant_1751706218_3669900208993574167_65649597383.webp`} alt="Contact Us" />
           <div className="contact-hero-overlay"></div>
         </div>
         <motion.div 
