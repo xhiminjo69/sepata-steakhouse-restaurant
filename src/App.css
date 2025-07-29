@@ -1,0 +1,63 @@
+.App {
+  min-height: 100vh;
+  background-color: #0a0a0a;
+}
+
+/* Page Transitions */
+.page-transition {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+}
+
+/* Loading Animation */
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #0a0a0a;
+}
+
+.loading-spinner {
+  width: 50px;
+  height: 50px;
+  border: 3px solid #333;
+  border-top: 3px solid #d4af37;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 15px;
+  }
+  
+  .section-padding {
+    padding: 60px 0;
+  }
+  
+  .btn-primary,
+  .btn-secondary {
+    padding: 10px 25px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .section-padding {
+    padding: 40px 0;
+  }
+  
+  .btn-primary,
+  .btn-secondary {
+    padding: 8px 20px;
+    font-size: 13px;
+  }
+}
