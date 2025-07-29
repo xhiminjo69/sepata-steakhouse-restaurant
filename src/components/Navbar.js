@@ -58,6 +58,9 @@ const Navbar = () => {
               </Link>
             </motion.div>
           ))}
+          <div className="mobile-language-switcher">
+            <LanguageSwitcher />
+          </div>
         </div>
 
         <div className="nav-actions">

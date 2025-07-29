@@ -133,6 +133,12 @@
   .nav-menu.active {
     left: 0;
   }
+  
+  .mobile-language-switcher {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+  }
 
   .nav-link {
     font-size: 18px;
