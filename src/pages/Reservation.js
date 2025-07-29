@@ -77,7 +77,7 @@ const Reservation = () => {
       {/* Hero Section */}
       <section className="reservation-hero" ref={heroRef}>
         <div className="reservation-hero-background">
-          <img src={`${process.env.PUBLIC_URL}/sepatarestaurant_1753090202_3680182292693909471_65649597383.webp`} alt="Restaurant Interior" />
+          <img src="/sepata-steakhouse-restaurant/sepatarestaurant_1753090202_3680182292693909471_65649597383.webp" alt="Restaurant Interior" />
           <div className="reservation-hero-overlay"></div>
         </div>
         <motion.div 

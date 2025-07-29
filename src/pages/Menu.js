@@ -226,7 +226,7 @@ const Menu = () => {
       {/* Hero Section */}
       <section className="menu-hero" ref={heroRef}>
         <div className="menu-hero-background">
-          <img src={`${process.env.PUBLIC_URL}/sepatarestaurant_1747758600_3636673091845828801_65649597383.jpg`} alt="Gourmet Dishes" />
+          <img src="/sepata-steakhouse-restaurant/sepatarestaurant_1747758600_3636673091845828801_65649597383.jpg" alt="Gourmet Dishes" />
           <div className="menu-hero-overlay"></div>
         </div>
         <motion.div 

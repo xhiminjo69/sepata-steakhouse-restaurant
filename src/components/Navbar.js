@@ -35,7 +35,7 @@ const Navbar = () => {
     >
       <div className="nav-container">
         <Link to="/" className="nav-logo">
-          <img src={`${process.env.PUBLIC_URL}/LOGO SEPATA.jpg`} alt="Sëpata Steak House" />
+          <img src="/sepata-steakhouse-restaurant/LOGO SEPATA.jpg" alt="Sëpata Steak House" />
         </Link>
 
         <div className={`nav-menu ${isMobileMenuOpen ? 'active' : ''}`}>

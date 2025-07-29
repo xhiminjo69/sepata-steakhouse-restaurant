@@ -35,7 +35,7 @@ const About = () => {
       {/* Hero Section */}
       <section className="about-hero" ref={heroRef}>
         <div className="about-hero-background">
-          <img src={`${process.env.PUBLIC_URL}/sepatarestaurant_1751706218_3669900209010297573_65649597383.webp`} alt="Sëpata Restaurant Interior" />
+          <img src="/sepata-steakhouse-restaurant/sepatarestaurant_1751706218_3669900209010297573_65649597383.webp" alt="Sëpata Restaurant Interior" />
           <div className="about-hero-overlay"></div>
         </div>
         <motion.div 
@@ -71,7 +71,7 @@ const About = () => {
               </p>
             </div>
             <div className="story-image">
-              <img src={`${process.env.PUBLIC_URL}/Screenshot 2025-07-29 180217.jpg`} alt="Restaurant Ambiance" />
+              <img src="/sepata-steakhouse-restaurant/Screenshot 2025-07-29 180217.jpg" alt="Restaurant Ambiance" />
             </div>
           </motion.div>
         </div>
@@ -87,7 +87,7 @@ const About = () => {
             animate={visionInView ? "visible" : "hidden"}
           >
             <div className="vision-image">
-              <img src={`${process.env.PUBLIC_URL}/sepatarestaurant_1747758600_3636673091845908237_65649597383.jpg`} alt="Signature Dishes" />
+              <img src="/sepata-steakhouse-restaurant/sepatarestaurant_1747758600_3636673091845908237_65649597383.jpg" alt="Signature Dishes" />
             </div>
             <div className="vision-text">
               <h2>Our Vision</h2>
@@ -177,7 +177,7 @@ const About = () => {
               </p>
             </div>
             <div className="team-image">
-              <img src={`${process.env.PUBLIC_URL}/Screenshot 2025-07-29 180439.jpg`} alt="Our Team" />
+              <img src="/sepata-steakhouse-restaurant/Screenshot 2025-07-29 180439.jpg" alt="Our Team" />
             </div>
           </motion.div>
         </div>
