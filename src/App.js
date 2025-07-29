@@ -12,7 +12,7 @@ import './App.css';
 
 function App() {
   return (
-    <Router>
+    <Router basename="/sepata-steakhouse-restaurant">
       <div className="App">
         <Navbar />
         <AnimatePresence mode="wait">
