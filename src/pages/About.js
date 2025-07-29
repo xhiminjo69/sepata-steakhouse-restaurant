@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
+import { useLanguage } from '../context/LanguageContext';
 import './About.css';
 
 const About = () => {
@@ -8,6 +9,7 @@ const About = () => {
   const [storyRef, storyInView] = useInView({ threshold: 0.3, triggerOnce: true });
   const [visionRef, visionInView] = useInView({ threshold: 0.3, triggerOnce: true });
   const [teamRef, teamInView] = useInView({ threshold: 0.3, triggerOnce: true });
+  const { t } = useLanguage();
 
   const fadeInUp = {
     hidden: { opacity: 0, y: 60 },
@@ -44,8 +46,8 @@ const About = () => {
           initial="hidden"
           animate={heroInView ? "visible" : "hidden"}
         >
-          <h1>Our Story</h1>
-          <p>Where culinary passion meets Albanian hospitality</p>
+          <h1>{t('about.story_title')}</h1>
+          <p>{t('about.hero_tagline')}</p>
         </motion.div>
       </section>
 
@@ -59,16 +61,10 @@ const About = () => {
             animate={storyInView ? "visible" : "hidden"}
           >
             <div className="story-text">
-              <h2>The Beginning</h2>
-              <p>
-                Sëpata Steak House was born from a dream to create something extraordinary along the stunning coastline of Vlore. Our founders, passionate about both exceptional cuisine and the rich culinary heritage of Albania, envisioned a place where international steakhouse excellence would meet the warmth of Albanian hospitality.
-              </p>
-              <p>
-                Located in the heart of Lungomare, our restaurant offers more than just a meal – it provides an experience. The gentle sound of waves from the Adriatic Sea creates the perfect backdrop for intimate dinners, business meetings, and celebrations that deserve to be remembered.
-              </p>
-              <p>
-                Every detail of Sëpata has been carefully crafted to reflect our commitment to excellence. From the carefully selected artwork that adorns our walls to the premium cuts of meat that grace our plates, we believe that dining should be an art form.
-              </p>
+              <h2>{t('about.story_title')}</h2>
+              <p>{t('about.story_p1')}</p>
+              <p>{t('about.story_p2')}</p>
+              <p>{t('about.story_p3')}</p>
             </div>
             <div className="story-image">
               <img src="/sepata-steakhouse-restaurant/Screenshot 2025-07-29 180217.jpg" alt="Restaurant Ambiance" />
@@ -90,16 +86,10 @@ const About = () => {
               <img src="/sepata-steakhouse-restaurant/sepatarestaurant_1747758600_3636673091845908237_65649597383.jpg" alt="Signature Dishes" />
             </div>
             <div className="vision-text">
-              <h2>Our Vision</h2>
-              <p>
-                At Sëpata, we believe that great food brings people together. Our vision extends beyond serving exceptional steaks – we aim to create a culinary destination that celebrates the beauty of Vlore while honoring the traditions of fine dining.
-              </p>
-              <p>
-                We source our ingredients with the utmost care, working with local suppliers who share our commitment to quality. Our steaks are aged to perfection, our seafood is caught fresh from the Adriatic, and our vegetables are sourced from the fertile lands of Albania.
-              </p>
-              <p>
-                The location in Lungomare is not just our address – it's an integral part of our identity. The sea breeze, the sunset views, and the vibrant energy of Vlore's waterfront all contribute to the unique atmosphere that makes dining at Sëpata an unforgettable experience.
-              </p>
+              <h2>{t('about.mission_title')}</h2>
+              <p>{t('about.vision_p1')}</p>
+              <p>{t('about.vision_p2')}</p>
+              <p>{t('about.vision_p3')}</p>
             </div>
           </motion.div>
         </div>
@@ -114,8 +104,8 @@ const About = () => {
             initial="hidden"
             animate={teamInView ? "visible" : "hidden"}
           >
-            <h2>Our Values</h2>
-            <p>The principles that guide everything we do</p>
+            <h2>{t('about.values_title')}</h2>
+            <p>{t('about.values_subtitle')}</p>
           </motion.div>
           <div className="values-grid" ref={teamRef}>
             <motion.div 
@@ -126,8 +116,8 @@ const About = () => {
               transition={{ delay: 0.2 }}
             >
               <div className="value-icon">🥩</div>
-              <h3>Quality Excellence</h3>
-              <p>We never compromise on the quality of our ingredients or the precision of our preparation. Every dish that leaves our kitchen meets our exacting standards.</p>
+              <h3>{t('about.value1_title')}</h3>
+              <p>{t('about.value1_desc')}</p>
             </motion.div>
             <motion.div 
               className="value-item"
@@ -137,8 +127,8 @@ const About = () => {
               transition={{ delay: 0.4 }}
             >
               <div className="value-icon">🌊</div>
-              <h3>Coastal Heritage</h3>
-              <p>Our location by the sea is central to our identity. We celebrate the maritime culture of Vlore while creating a sophisticated dining atmosphere.</p>
+              <h3>{t('about.value3_title')}</h3>
+              <p>{t('about.value3_desc')}</p>
             </motion.div>
             <motion.div 
               className="value-item"
@@ -148,8 +138,8 @@ const About = () => {
               transition={{ delay: 0.6 }}
             >
               <div className="value-icon">🤝</div>
-              <h3>Albanian Hospitality</h3>
-              <p>Warmth, generosity, and genuine care for our guests are at the heart of the Albanian spirit, and these values define every interaction at Sëpata.</p>
+              <h3>{t('about.value4_title')}</h3>
+              <p>{t('about.value4_desc')}</p>
             </motion.div>
           </div>
         </div>
@@ -165,16 +155,10 @@ const About = () => {
             animate={teamInView ? "visible" : "hidden"}
           >
             <div className="team-text">
-              <h2>Our Team</h2>
-              <p>
-                Behind every exceptional meal at Sëpata is a team of dedicated professionals who share our passion for culinary excellence. Our chefs bring years of international experience, having trained in some of Europe's finest kitchens, while our service team embodies the warmth and professionalism that Albanian hospitality is known for.
-              </p>
-              <p>
-                From our head chef who carefully selects each cut of meat, to our sommelier who curates our wine selection, to our servers who ensure every detail of your experience is perfect – every member of our team is committed to making your visit to Sëpata truly memorable.
-              </p>
-              <p>
-                We believe that great restaurants are built by great people, and we're proud of the family we've created here at Sëpata.
-              </p>
+              <h2>{t('about.team_title')}</h2>
+              <p>{t('about.team_p1')}</p>
+              <p>{t('about.team_p2')}</p>
+              <p>{t('about.team_p3')}</p>
             </div>
             <div className="team-image">
               <img src="/sepata-steakhouse-restaurant/Screenshot 2025-07-29 180439.jpg" alt="Our Team" />
@@ -192,25 +176,21 @@ const About = () => {
             initial="hidden"
             animate={teamInView ? "visible" : "hidden"}
           >
-            <h2>Lungomare, Vlore</h2>
-            <p>
-              Nestled along Vlore's beautiful Lungomare, Sëpata enjoys one of the most spectacular locations on the Albanian coast. Our restaurant offers panoramic views of the Adriatic Sea, where guests can watch the sun set over the water while enjoying their meal.
-            </p>
-            <p>
-              The Lungomare is the heart of Vlore's social and cultural life, a place where locals and visitors alike come to enjoy the sea breeze and the vibrant atmosphere. Being part of this community is both an honor and a responsibility that we take seriously.
-            </p>
+            <h2>{t('about.location_title')}</h2>
+            <p>{t('about.location_p1')}</p>
+            <p>{t('about.location_p2')}</p>
             <div className="location-highlights">
               <div className="highlight-item">
-                <h4>Seaside Dining</h4>
-                <p>Panoramic views of the Adriatic Sea</p>
+                <h4>{t('about.highlight1_title')}</h4>
+                <p>{t('about.highlight1_desc')}</p>
               </div>
               <div className="highlight-item">
-                <h4>Prime Location</h4>
-                <p>Heart of Vlore's Lungomare promenade</p>
+                <h4>{t('about.highlight2_title')}</h4>
+                <p>{t('about.highlight2_desc')}</p>
               </div>
               <div className="highlight-item">
-                <h4>Sunset Views</h4>
-                <p>Perfect setting for romantic dinners</p>
+                <h4>{t('about.highlight3_title')}</h4>
+                <p>{t('about.highlight3_desc')}</p>
               </div>
             </div>
           </motion.div>

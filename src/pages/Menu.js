@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
+import { useLanguage } from '../context/LanguageContext';
 import './Menu.css';
 
 const Menu = () => {
   const [activeCategory, setActiveCategory] = useState('starters');
   const [heroRef, heroInView] = useInView({ threshold: 0.3, triggerOnce: true });
   const [menuRef, menuInView] = useInView({ threshold: 0.3, triggerOnce: true });
+  const { t } = useLanguage();
 
   const fadeInUp = {
     hidden: { opacity: 0, y: 60 },
@@ -14,13 +16,13 @@ const Menu = () => {
   };
 
   const menuCategories = [
-    { id: 'starters', name: 'Starters', icon: '🥗' },
-    { id: 'steaks', name: 'Premium Steaks', icon: '🥩' },
-    { id: 'mains', name: 'Main Courses', icon: '🍽️' },
-    { id: 'seafood', name: 'Fresh Seafood', icon: '🦞' },
-    { id: 'sides', name: 'Sides', icon: '🥔' },
-    { id: 'desserts', name: 'Desserts', icon: '🍰' },
-    { id: 'beverages', name: 'Beverages', icon: '🍷' }
+    { id: 'starters', name: t('menu.starters'), icon: '🥗' },
+    { id: 'steaks', name: t('menu.steaks'), icon: '🥩' },
+    { id: 'mains', name: t('menu.main_courses'), icon: '🍽️' },
+    { id: 'seafood', name: t('menu.seafood'), icon: '🦞' },
+    { id: 'sides', name: t('menu.sides'), icon: '🥔' },
+    { id: 'desserts', name: t('menu.desserts'), icon: '🍰' },
+    { id: 'beverages', name: t('menu.drinks'), icon: '🍷' }
   ];
 
   const menuItems = {
@@ -235,8 +237,8 @@ const Menu = () => {
           initial="hidden"
           animate={heroInView ? "visible" : "hidden"}
         >
-          <h1>Our Menu</h1>
-          <p>Culinary excellence meets Albanian tradition</p>
+          <h1>{t('menu.title')}</h1>
+          <p>{t('menu.subtitle')}</p>
         </motion.div>
       </section>
 
@@ -308,23 +310,20 @@ const Menu = () => {
             initial="hidden"
             animate={menuInView ? "visible" : "hidden"}
           >
-            <h2>Wine Pairings</h2>
-            <p>
-              Our sommelier has carefully selected wines to complement each dish. 
-              Ask your server about our recommended pairings to enhance your dining experience.
-            </p>
+            <h2>{t('menu.wine_pairings')}</h2>
+            <p>{t('menu.wine_description')}</p>
             <div className="wine-features">
               <div className="wine-feature">
-                <h3>Albanian Wines</h3>
-                <p>Discover exceptional local vintages from Albania's emerging wine regions</p>
+                <h3>{t('menu.albanian_wines')}</h3>
+                <p>{t('menu.albanian_wines_desc')}</p>
               </div>
               <div className="wine-feature">
-                <h3>International Selection</h3>
-                <p>Premium wines from renowned vineyards across Europe and beyond</p>
+                <h3>{t('menu.international_wines')}</h3>
+                <p>{t('menu.international_wines_desc')}</p>
               </div>
               <div className="wine-feature">
-                <h3>Expert Pairings</h3>
-                <p>Our sommelier's recommendations for the perfect food and wine combinations</p>
+                <h3>{t('menu.expert_pairings')}</h3>
+                <p>{t('menu.expert_pairings_desc')}</p>
               </div>
             </div>
           </motion.div>

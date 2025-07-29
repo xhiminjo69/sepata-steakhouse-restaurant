@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
+import { useLanguage } from '../context/LanguageContext';
 import './Gallery.css';
 
 const Gallery = () => {
@@ -8,9 +9,10 @@ const Gallery = () => {
   const [activeCategory, setActiveCategory] = useState('all');
   const [heroRef, heroInView] = useInView({ threshold: 0.3, triggerOnce: true });
   const [galleryRef, galleryInView] = useInView({ threshold: 0.3, triggerOnce: true });
+  const { t } = useLanguage();
 
   const fadeInUp = {
-    hidden: { opacity: 0, y: 60 },
+    hidden: { opacity: 0.8, y: 60 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } }
   };
 
@@ -104,16 +106,52 @@ const Gallery = () => {
       alt: 'Restaurant Details',
       category: 'interior',
       title: 'Attention to Detail'
+    },
+    {
+      src: '/sepata-steakhouse-restaurant/sepatarestaurant_1753205703_3682478802195952600_65649597383.png',
+      alt: 'Exquisite Dining Setting',
+      category: 'interior',
+      title: 'Luxurious Dining Experience'
+    },
+    {
+      src: '/sepata-steakhouse-restaurant/sepatarestaurant_1752931601_3680179464441162780_65649597383.png',
+      alt: 'Gourmet Dish Presentation',
+      category: 'food',
+      title: 'Culinary Excellence'
+    },
+    {
+      src: '/sepata-steakhouse-restaurant/sepatarestaurant_1752048016_3672767506730798798_65649597383.png',
+      alt: 'Restaurant Atmosphere',
+      category: 'interior',
+      title: 'Elegant Ambiance'
+    },
+    {
+      src: '/sepata-steakhouse-restaurant/sepatarestaurant_1751915026_3671651815005315746_65649597383.png',
+      alt: 'Signature Dish',
+      category: 'food',
+      title: 'Chefs Special Creation'
+    },
+    {
+      src: '/sepata-steakhouse-restaurant/sepatarestaurant_1751804495_3670724619738287426_65649597383.png',
+      alt: 'Outdoor Dining Area',
+      category: 'exterior',
+      title: 'Terrace Dining Experience'
+    },
+    {
+      src: '/sepata-steakhouse-restaurant/sepatarestaurant_1749888011_3654647984667456269_65649597383.png',
+      alt: 'Restaurant View',
+      category: 'views',
+      title: 'Panoramic Scenery'
     }
   ];
 
   const categories = [
-    { id: 'all', name: 'All Photos', icon: '📸' },
-    { id: 'food', name: 'Cuisine', icon: '🍽️' },
-    { id: 'interior', name: 'Interior', icon: '🏛️' },
-    { id: 'views', name: 'Sea Views', icon: '🌊' },
-    { id: 'kitchen', name: 'Kitchen', icon: '👨‍🍳' },
-    { id: 'exterior', name: 'Exterior', icon: '🏢' }
+    { id: 'all', name: t('gallery.all_photos'), icon: '📸' },
+    { id: 'food', name: t('gallery.cuisine'), icon: '🍽️' },
+    { id: 'interior', name: t('gallery.interior'), icon: '🏛️' },
+    { id: 'views', name: t('gallery.sea_views'), icon: '🌊' },
+    { id: 'kitchen', name: t('gallery.kitchen'), icon: '👨‍🍳' },
+    { id: 'exterior', name: t('gallery.interior'), icon: '🏢' }
   ];
 
   const filteredImages = activeCategory === 'all' 
@@ -163,8 +201,8 @@ const Gallery = () => {
           initial="hidden"
           animate={heroInView ? "visible" : "hidden"}
         >
-          <h1>Gallery</h1>
-          <p>A visual journey through our culinary world</p>
+          <h1>{t('gallery.title')}</h1>
+          <p>{t('gallery.subtitle')}</p>
         </motion.div>
       </section>
 
@@ -174,8 +212,9 @@ const Gallery = () => {
           <motion.div 
             className="gallery-content"
             variants={fadeInUp}
-            initial="hidden"
-            animate={galleryInView ? "visible" : "hidden"}
+            initial={{ opacity: 1, y: 60 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
           >
             {/* Category Filter */}
             <div className="gallery-filters">
@@ -203,7 +242,7 @@ const Gallery = () => {
                     key={image.src}
                     className="gallery-item"
                     layout
-                    initial={{ opacity: 0, scale: 0.8 }}
+                    initial={{ opacity: 1, scale: 0.95 }}
                     animate={{ opacity: 1, scale: 1 }}
                     exit={{ opacity: 0, scale: 0.8 }}
                     transition={{ duration: 0.5 }}
@@ -214,7 +253,7 @@ const Gallery = () => {
                       <div className="image-overlay">
                         <div className="image-info">
                           <h3>{image.title}</h3>
-                          <p>Click to view</p>
+                          <p>{t('gallery.click_to_view')}</p>
                         </div>
                       </div>
                     </div>
@@ -281,30 +320,21 @@ const Gallery = () => {
             initial="hidden"
             animate={galleryInView ? "visible" : "hidden"}
           >
-            <h2>Capturing Moments</h2>
-            <p>
-              Every image tells a story of our commitment to excellence. From the artful presentation 
-              of our signature dishes to the elegant ambiance of our dining rooms, these photographs 
-              showcase the attention to detail that makes Sëpata a truly special destination.
-            </p>
-            <p>
-              Located along Vlore's stunning Lungomare, our restaurant offers not just exceptional 
-              cuisine, but also breathtaking views of the Adriatic Sea. Whether you're celebrating 
-              a special occasion or simply enjoying an evening out, Sëpata provides the perfect 
-              backdrop for unforgettable memories.
-            </p>
+            <h2>{t('gallery.capturing_moments')}</h2>
+            <p>{t('gallery.description_1')}</p>
+            <p>{t('gallery.description_2')}</p>
             <div className="gallery-stats">
               <div className="stat-item">
-                <h3>Premium Ingredients</h3>
-                <p>Sourced from the finest suppliers</p>
+                <h3>{t('gallery.premium_ingredients')}</h3>
+                <p>{t('gallery.premium_ingredients_desc')}</p>
               </div>
               <div className="stat-item">
-                <h3>Artisanal Preparation</h3>
-                <p>Crafted by expert chefs</p>
+                <h3>{t('gallery.artisanal_preparation')}</h3>
+                <p>{t('gallery.artisanal_preparation_desc')}</p>
               </div>
               <div className="stat-item">
-                <h3>Elegant Presentation</h3>
-                <p>Every dish is a work of art</p>
+                <h3>{t('gallery.elegant_presentation')}</h3>
+                <p>{t('gallery.elegant_presentation_desc')}</p>
               </div>
             </div>
           </motion.div>

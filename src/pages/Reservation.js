@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
+import { useLanguage } from '../context/LanguageContext';
 import './Reservation.css';
 
 const Reservation = () => {
+  const { t } = useLanguage();
+  
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -86,8 +89,8 @@ const Reservation = () => {
           initial="hidden"
           animate={heroInView ? "visible" : "hidden"}
         >
-          <h1>Reserve Your Table</h1>
-          <p>Experience unforgettable dining with stunning sea views</p>
+          <h1>{t('reservation.title')}</h1>
+          <p>{t('home.reservation_description')}</p>
         </motion.div>
       </section>
 
@@ -101,13 +104,13 @@ const Reservation = () => {
               initial="hidden"
               animate={formInView ? "visible" : "hidden"}
             >
-              <h2>Make a Reservation</h2>
-              <p>Please fill out the form below and we'll confirm your reservation within 24 hours.</p>
+              <h2>{t('reservation.title')}</h2>
+              <p>{t('reservation.form_description')}</p>
               
               <form onSubmit={handleSubmit} className="reservation-form">
                 <div className="form-row">
                   <div className="form-group">
-                    <label htmlFor="name">Full Name *</label>
+                    <label htmlFor="name">{t('reservation.name')}</label>
                     <input
                       type="text"
                       id="name"
@@ -115,11 +118,11 @@ const Reservation = () => {
                       value={formData.name}
                       onChange={handleInputChange}
                       required
-                      placeholder="Enter your full name"
+                      placeholder={t('reservation.name_placeholder')}
                     />
                   </div>
                   <div className="form-group">
-                    <label htmlFor="email">Email Address *</label>
+                    <label htmlFor="email">{t('reservation.email')}</label>
                     <input
                       type="email"
                       id="email"
@@ -127,14 +130,14 @@ const Reservation = () => {
                       value={formData.email}
                       onChange={handleInputChange}
                       required
-                      placeholder="Enter your email"
+                      placeholder={t('reservation.email_placeholder')}
                     />
                   </div>
                 </div>
 
                 <div className="form-row">
                   <div className="form-group">
-                    <label htmlFor="phone">Phone Number *</label>
+                    <label htmlFor="phone">{t('reservation.phone')}</label>
                     <input
                       type="tel"
                       id="phone"
@@ -142,11 +145,11 @@ const Reservation = () => {
                       value={formData.phone}
                       onChange={handleInputChange}
                       required
-                      placeholder="+355 XX XXX XXX"
+                      placeholder={t('reservation.phone_placeholder')}
                     />
                   </div>
                   <div className="form-group">
-                    <label htmlFor="guests">Number of Guests *</label>
+                    <label htmlFor="guests">{t('reservation.guests')}</label>
                     <select
                       id="guests"
                       name="guests"
@@ -155,7 +158,7 @@ const Reservation = () => {
                       required
                     >
                       {guestOptions.map(option => (
-                        <option key={option} value={option}>{option} {option === '1' ? 'Guest' : 'Guests'}</option>
+                        <option key={option} value={option}>{option} {option === '1' ? t('reservation.guest') : t('reservation.guests')}</option>
                       ))}
                     </select>
                   </div>
@@ -163,7 +166,7 @@ const Reservation = () => {
 
                 <div className="form-row">
                   <div className="form-group">
-                    <label htmlFor="date">Preferred Date *</label>
+                    <label htmlFor="date">{t('reservation.date')}</label>
                     <input
                       type="date"
                       id="date"
@@ -175,7 +178,7 @@ const Reservation = () => {
                     />
                   </div>
                   <div className="form-group">
-                    <label htmlFor="time">Preferred Time *</label>
+                    <label htmlFor="time">{t('reservation.time')}</label>
                     <select
                       id="time"
                       name="time"
@@ -183,7 +186,7 @@ const Reservation = () => {
                       onChange={handleInputChange}
                       required
                     >
-                      <option value="">Select time</option>
+                      <option value="">{t('reservation.select_time')}</option>
                       {timeSlots.map(time => (
                         <option key={time} value={time}>{time}</option>
                       ))}
@@ -192,19 +195,19 @@ const Reservation = () => {
                 </div>
 
                 <div className="form-group">
-                  <label htmlFor="specialRequests">Special Requests</label>
+                  <label htmlFor="specialRequests">{t('reservation.special_requests')}</label>
                   <textarea
                     id="specialRequests"
                     name="specialRequests"
                     value={formData.specialRequests}
                     onChange={handleInputChange}
                     rows="4"
-                    placeholder="Any dietary restrictions, special occasions, or other requests..."
+                    placeholder={t('reservation.special_requests_placeholder')}
                   ></textarea>
                 </div>
 
                 <button type="submit" className="btn-primary submit-btn">
-                  Submit Reservation
+                  {t('reservation.submit')}
                 </button>
               </form>
             </motion.div>
@@ -216,40 +219,40 @@ const Reservation = () => {
               animate={formInView ? "visible" : "hidden"}
             >
               <div className="info-card">
-                <h3>Reservation Policy</h3>
+                <h3>{t('reservation.policy')}</h3>
                 <ul>
-                  <li>Reservations are confirmed within 24 hours</li>
-                  <li>Please arrive within 15 minutes of your reservation time</li>
-                  <li>For parties of 8 or more, please call directly</li>
-                  <li>Cancellations must be made at least 2 hours in advance</li>
+                  <li>{t('reservation.policy_1')}</li>
+                  <li>{t('reservation.policy_2')}</li>
+                  <li>{t('reservation.policy_3')}</li>
+                  <li>{t('reservation.policy_4')}</li>
                 </ul>
               </div>
 
               <div className="info-card">
-                <h3>Contact Information</h3>
+                <h3>{t('reservation.contact_info')}</h3>
                 <div className="contact-item">
-                  <strong>Phone:</strong>
+                  <strong>{t('reservation.phone_label')}</strong>
                   <span>+355 XX XXX XXX</span>
                 </div>
                 <div className="contact-item">
-                  <strong>Email:</strong>
+                  <strong>{t('reservation.email_label')}</strong>
                   <span>reservations@sepata.al</span>
                 </div>
                 <div className="contact-item">
-                  <strong>Address:</strong>
+                  <strong>{t('reservation.address_label')}</strong>
                   <span>Lungomare, Vlore, Albania</span>
                 </div>
               </div>
 
               <div className="info-card">
-                <h3>Opening Hours</h3>
+                <h3>{t('reservation.opening_hours')}</h3>
                 <div className="hours-item">
-                  <span>Monday - Sunday</span>
-                  <span>12:00 PM - 11:00 PM</span>
+                  <span>{t('reservation.monday_sunday')}</span>
+                  <span>{t('reservation.hours')}</span>
                 </div>
                 <div className="hours-item">
-                  <span>Kitchen closes</span>
-                  <span>10:30 PM</span>
+                  <span>{t('reservation.kitchen_closes')}</span>
+                  <span>{t('reservation.kitchen_time')}</span>
                 </div>
               </div>
             </motion.div>
@@ -266,36 +269,32 @@ const Reservation = () => {
             initial="hidden"
             animate={infoInView ? "visible" : "hidden"}
           >
-            <h2>Find Us</h2>
-            <p>Located in the heart of Lungomare, Vlore, with stunning views of the Adriatic Sea</p>
+            <h2>{t('reservation.find_us')}</h2>
+            <p>{t('reservation.location_description')}</p>
             
             <div className="location-details">
               <div className="location-info">
-                <h3>Getting Here</h3>
-                <p>
-                  Sëpata Steak House is conveniently located on Vlore's famous Lungomare promenade. 
-                  We're easily accessible by car with nearby parking available, or by foot if you're 
-                  staying in the city center.
-                </p>
+                <h3>{t('reservation.getting_here')}</h3>
+                <p>{t('reservation.directions')}</p>
                 <div className="location-features">
                   <div className="feature">
                     <span className="feature-icon">🚗</span>
-                    <span>Valet Parking Available</span>
+                    <span>{t('reservation.valet_parking')}</span>
                   </div>
                   <div className="feature">
                     <span className="feature-icon">🚶</span>
-                    <span>5 min walk from city center</span>
+                    <span>{t('reservation.walking_distance')}</span>
                   </div>
                   <div className="feature">
                     <span className="feature-icon">🌊</span>
-                    <span>Waterfront location</span>
+                    <span>{t('reservation.waterfront')}</span>
                   </div>
                 </div>
               </div>
               
               <div className="map-container">
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3048.8!2d19.4908!3d40.4686!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDDCsDI4JzA3LjAiTiAxOcKwMjknMjcuMCJF!5e0!3m2!1sen!2s!4v1234567890"
+                  src="https://www.google.com/maps/embed?pb=!1m23!1m12!1m3!1d97171.21023993204!2d19.413140332447057!3d40.43984824799447!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m8!3e6!4m0!4m5!1s0x13453331cc8fee15%3A0xb9568441f3a08996!2sLungo%20Mare%2C%20Murat%20Terba%C3%A7i%2C%20Vlor%C3%AB!3m2!1d40.4398775!2d19.495541199999998!5e0!3m2!1sen!2s!4v1753823844694!5m2!1sen!2s"
                   width="100%"
                   height="400"
                   style={{ border: 0, borderRadius: '15px' }}
@@ -319,10 +318,10 @@ const Reservation = () => {
             initial="hidden"
             animate={infoInView ? "visible" : "hidden"}
           >
-            <h2>Prefer to Call?</h2>
-            <p>Our reservation team is available to assist you</p>
+            <h2>{t('reservation.prefer_call')}</h2>
+            <p>{t('reservation.call_description')}</p>
             <a href="tel:+355XXXXXXX" className="btn-secondary">
-              Call +355 XX XXX XXX
+              {t('reservation.call_button')}
             </a>
           </motion.div>
         </div>

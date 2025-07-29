@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
+import { useLanguage } from '../context/LanguageContext';
 import './Home.css';
 
 const Home = () => {
@@ -10,6 +11,7 @@ const Home = () => {
   const [menuRef, menuInView] = useInView({ threshold: 0.3, triggerOnce: true });
   const [galleryRef, galleryInView] = useInView({ threshold: 0.3, triggerOnce: true });
   const [contactRef, contactInView] = useInView({ threshold: 0.3, triggerOnce: true });
+  const { t } = useLanguage();
 
   const fadeInUp = {
     hidden: { opacity: 0, y: 60 },
@@ -36,9 +38,8 @@ const Home = () => {
     >
       {/* Hero Section */}
       <section className="hero" ref={heroRef}>
-        <div className="hero-background">
+        <div className="hero-image">
           <img src="/sepata-steakhouse-restaurant/LOGO SEPATA.jpg" alt="Sëpata Steak House" />
-          <div className="hero-overlay"></div>
         </div>
         <motion.div 
           className="hero-content"
@@ -47,22 +48,20 @@ const Home = () => {
           animate={heroInView ? "visible" : "hidden"}
         >
           <motion.h1 variants={fadeInUp} className="hero-title">
-            Welcome to Sëpata
+            {t('home.welcome')} Sëpata
           </motion.h1>
           <motion.p variants={fadeInUp} className="hero-subtitle">
-            Premium Steakhouse Experience in Lungomare, Vlore
+            {t('home.hero_subtitle')}
           </motion.p>
           <motion.p variants={fadeInUp} className="hero-description">
-            Indulge in the finest cuts of meat with breathtaking sea views, where culinary excellence meets Albanian hospitality.
+            {t('home.hero_description')}
           </motion.p>
           <motion.div variants={fadeInUp} className="hero-buttons">
-            <Link to="/menu" className="btn-primary">View Menu</Link>
-            <Link to="/reservation" className="btn-secondary">Make a Reservation</Link>
+            <Link to="/menu" className="btn-primary">{t('menu.title')}</Link>
+            <Link to="/reservation" className="btn-secondary">{t('home.cta_button')}</Link>
           </motion.div>
         </motion.div>
-        <div className="scroll-indicator">
-          <div className="scroll-arrow"></div>
-        </div>
+
       </section>
 
       {/* About Preview */}
@@ -75,17 +74,17 @@ const Home = () => {
             animate={aboutInView ? "visible" : "hidden"}
           >
             <div className="about-text">
-              <h2>Our Story</h2>
+              <h2>{t('home.about_heading')}</h2>
               <p>
-                Nestled along the beautiful Lungomare of Vlore, Sëpata Steak House represents the pinnacle of fine dining in Albania. Our passion for exceptional cuisine and warm hospitality creates an unforgettable experience where the Mediterranean meets premium steakhouse tradition.
+                {t('home.about_p1')}
               </p>
               <p>
-                With panoramic views of the Adriatic Sea and a commitment to sourcing the finest ingredients, we offer our guests a culinary journey that celebrates both international flavors and local Albanian heritage.
+                {t('home.about_p2')}
               </p>
-              <Link to="/about" className="btn-secondary">Read More</Link>
+              <Link to="/about" className="btn-secondary">{t('about.title')}</Link>
             </div>
             <div className="about-image">
-              <img src="/sepata-steakhouse-restaurant/sepatarestaurant_1751706218_3669900208993574167_65649597383.webp" alt="Restaurant Interior" />
+              <img src="/sepata-steakhouse-restaurant/rreth nesh.png" alt="Restaurant Interior" />
             </div>
           </motion.div>
         </div>
@@ -107,27 +106,27 @@ const Home = () => {
             animate={menuInView ? "visible" : "hidden"}
           >
             <div className="menu-header">
-              <h2>Culinary Excellence</h2>
-              <p>Discover our carefully crafted menu featuring premium steaks, fresh seafood, and exquisite Albanian specialties.</p>
+              <h2>{t('home.menu_heading')}</h2>
+              <p>{t('home.menu_description')}</p>
             </div>
             <div className="menu-highlights">
               <div className="menu-item">
-                <h3>Premium Steaks</h3>
-                <p>Aged to perfection and grilled to your preference</p>
-                <span className="price">From €35</span>
+                <h3>{t('home.menu_item1_title')}</h3>
+                <p>{t('home.menu_item1_desc')}</p>
+                <span className="price">{t('home.menu_item1_price')}</span>
               </div>
               <div className="menu-item">
-                <h3>Fresh Seafood</h3>
-                <p>Daily catch from the Adriatic Sea</p>
-                <span className="price">From €28</span>
+                <h3>{t('home.menu_item2_title')}</h3>
+                <p>{t('home.menu_item2_desc')}</p>
+                <span className="price">{t('home.menu_item2_price')}</span>
               </div>
               <div className="menu-item">
-                <h3>Albanian Specialties</h3>
-                <p>Traditional dishes with a modern twist</p>
-                <span className="price">From €22</span>
+                <h3>{t('home.menu_item3_title')}</h3>
+                <p>{t('home.menu_item3_desc')}</p>
+                <span className="price">{t('home.menu_item3_price')}</span>
               </div>
             </div>
-            <Link to="/menu" className="btn-primary">See Full Menu</Link>
+            <Link to="/menu" className="btn-primary">{t('menu.title')}</Link>
           </motion.div>
         </div>
       </section>
@@ -141,7 +140,7 @@ const Home = () => {
             initial="hidden"
             animate={galleryInView ? "visible" : "hidden"}
           >
-            <h2>Experience Sëpata</h2>
+            <h2>{t('home.gallery_heading')}</h2>
             <div className="gallery-grid">
               <div className="gallery-item">
                 <img src="/sepata-steakhouse-restaurant/sepatarestaurant_1747758600_3636673091845828801_65649597383.jpg" alt="Signature Dish" />
@@ -155,8 +154,14 @@ const Home = () => {
               <div className="gallery-item">
                 <img src="/sepata-steakhouse-restaurant/Screenshot 2025-07-29 180305.jpg" alt="Scenic Dining" />
               </div>
+              <div className="gallery-item">
+                <img src="/sepata-steakhouse-restaurant/sepatarestaurant_1752931601_3680179464441162780_65649597383.png" alt="Gourmet Dish Presentation" />
+              </div>
+              <div className="gallery-item">
+                <img src="/sepata-steakhouse-restaurant/sepatarestaurant_1753205703_3682478802195952600_65649597383.png" alt="Exquisite Dining Setting" />
+              </div>
             </div>
-            <Link to="/gallery" className="btn-secondary">View Gallery</Link>
+            <Link to="/gallery" className="btn-secondary">{t('gallery.title')}</Link>
           </motion.div>
         </div>
       </section>
@@ -175,9 +180,9 @@ const Home = () => {
             initial="hidden"
             animate={contactInView ? "visible" : "hidden"}
           >
-            <h2>Reserve Your Table</h2>
-            <p>Experience unforgettable dining with stunning sea views</p>
-            <Link to="/reservation" className="btn-primary">Make a Reservation</Link>
+            <h2>{t('reservation.title')}</h2>
+            <p>{t('home.reservation_description')}</p>
+            <Link to="/reservation" className="btn-primary">{t('home.cta_button')}</Link>
           </motion.div>
         </div>
       </section>
@@ -192,20 +197,20 @@ const Home = () => {
             animate={contactInView ? "visible" : "hidden"}
           >
             <div className="contact-info">
-              <h2>Visit Us</h2>
+              <h2>{t('home.contact_heading')}</h2>
               <div className="contact-item">
-                <h3>Location</h3>
-                <p>Lungomare, Vlore, Albania</p>
+                <h3>{t('home.location_heading')}</h3>
+                <p>{t('home.location_address')}</p>
               </div>
               <div className="contact-item">
-                <h3>Hours</h3>
-                <p>Daily: 12:00 PM - 11:00 PM</p>
+                <h3>{t('home.hours_heading')}</h3>
+                <p>{t('home.hours_value')}</p>
               </div>
               <div className="contact-item">
-                <h3>Reservations</h3>
-                <p>+355 XX XXX XXX</p>
+                <h3>{t('home.reservations_heading')}</h3>
+                <p>{t('home.reservations_phone')}</p>
               </div>
-              <Link to="/contact" className="btn-secondary">Contact Us</Link>
+              <Link to="/contact" className="btn-secondary">{t('contact.title')}</Link>
             </div>
             <div className="contact-map">
               <iframe

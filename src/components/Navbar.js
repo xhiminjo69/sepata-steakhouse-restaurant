@@ -1,12 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import { useLanguage } from '../context/LanguageContext';
+import LanguageSwitcher from './LanguageSwitcher';
 import './Navbar.css';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
+  const { t } = useLanguage();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -18,12 +21,12 @@ const Navbar = () => {
   }, []);
 
   const navItems = [
-    { name: 'Home', path: '/' },
-    { name: 'Menu', path: '/menu' },
-    { name: 'About', path: '/about' },
-    { name: 'Gallery', path: '/gallery' },
-    { name: 'Reservation', path: '/reservation' },
-    { name: 'Contact', path: '/contact' }
+    { name: t('navbar.home'), path: '/' },
+    { name: t('navbar.menu'), path: '/menu' },
+    { name: t('navbar.about'), path: '/about' },
+    { name: t('navbar.gallery'), path: '/gallery' },
+    { name: t('navbar.reservation'), path: '/reservation' },
+    { name: t('navbar.contact'), path: '/contact' }
   ];
 
   return (
@@ -35,7 +38,7 @@ const Navbar = () => {
     >
       <div className="nav-container">
         <Link to="/" className="nav-logo">
-          <img src="/sepata-steakhouse-restaurant/LOGO SEPATA.jpg" alt="Sëpata Steak House" />
+          <img src="/sepata-steakhouse-restaurant/sepata-logo-new.svg" alt="Sëpata Steak House" />
         </Link>
 
         <div className={`nav-menu ${isMobileMenuOpen ? 'active' : ''}`}>
@@ -59,8 +62,9 @@ const Navbar = () => {
 
         <div className="nav-actions">
           <Link to="/reservation" className="btn-primary nav-cta">
-            Reserve Table
+            {t('home.cta_button')}
           </Link>
+          <LanguageSwitcher />
         </div>
 
         <div 
