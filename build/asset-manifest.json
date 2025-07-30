@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/sepata-steakhouse-restaurant/static/css/main.6b6f144d.css",
-    "main.js": "/sepata-steakhouse-restaurant/static/js/main.fb3536cf.js",
+    "main.css": "/sepata-steakhouse-restaurant/static/css/main.eacf0b89.css",
+    "main.js": "/sepata-steakhouse-restaurant/static/js/main.32df553a.js",
     "index.html": "/sepata-steakhouse-restaurant/index.html",
-    "main.6b6f144d.css.map": "/sepata-steakhouse-restaurant/static/css/main.6b6f144d.css.map",
-    "main.fb3536cf.js.map": "/sepata-steakhouse-restaurant/static/js/main.fb3536cf.js.map"
+    "main.eacf0b89.css.map": "/sepata-steakhouse-restaurant/static/css/main.eacf0b89.css.map",
+    "main.32df553a.js.map": "/sepata-steakhouse-restaurant/static/js/main.32df553a.js.map"
   },
   "entrypoints": [
-    "static/css/main.6b6f144d.css",
-    "static/js/main.fb3536cf.js"
+    "static/css/main.eacf0b89.css",
+    "static/js/main.32df553a.js"
   ]
 }

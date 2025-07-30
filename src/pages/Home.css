@@ -341,8 +341,13 @@
     height: 50vh;
   }
   
+  .hero-image {
+    height: 40vh;
+  }
+  
   .hero-content {
-    padding: 10px 20px 30px;
+    padding: 0 20px 30px;
+    margin-top: -20px;
   }
   
   .hero-title {
@@ -390,8 +395,13 @@
     height: 40vh;
   }
   
+  .hero-image {
+    height: 35vh;
+  }
+  
   .hero-content {
-    padding: 20px 15px;
+    padding: 0 15px 20px;
+    margin-top: -25px;
   }
   
   .hero-title {
