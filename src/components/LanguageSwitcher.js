@@ -2,11 +2,12 @@ import React from 'react';
 import { useLanguage } from '../context/LanguageContext';
 import './LanguageSwitcher.css';
 
-const LanguageSwitcher = () => {
+const LanguageSwitcher = ({ mobile = false }) => {
   const { currentLanguage, languages, changeLanguage } = useLanguage();
 
+  // Use a combination of React and CSS to handle mobile vs desktop display
   return (
-    <div className="language-switcher">
+    <div className={`language-switcher ${mobile ? 'mobile-only' : 'desktop-only'}`}>
       {Object.keys(languages).map((langCode) => (
         <button
           key={langCode}

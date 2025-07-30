@@ -232,7 +232,7 @@ const Reservation = () => {
                 <h3>{t('reservation.contact_info')}</h3>
                 <div className="contact-item">
                   <strong>{t('reservation.phone_label')}</strong>
-                  <span>+355 XX XXX XXX</span>
+                  <span>+355 69 209 5155</span>
                 </div>
                 <div className="contact-item">
                   <strong>{t('reservation.email_label')}</strong>

@@ -39,7 +39,7 @@ const Home = () => {
       {/* Hero Section */}
       <section className="hero" ref={heroRef}>
         <div className="hero-image">
-          <img src="/sepata-steakhouse-restaurant/LOGO SEPATA.jpg" alt="Sëpata Steak House" />
+          <img src="/sepata-steakhouse-restaurant/LOGO_SEPATA-removebg.png" alt="Sëpata Steak House" />
         </div>
         <motion.div 
           className="hero-content"
@@ -113,17 +113,14 @@ const Home = () => {
               <div className="menu-item">
                 <h3>{t('home.menu_item1_title')}</h3>
                 <p>{t('home.menu_item1_desc')}</p>
-                <span className="price">{t('home.menu_item1_price')}</span>
               </div>
               <div className="menu-item">
                 <h3>{t('home.menu_item2_title')}</h3>
                 <p>{t('home.menu_item2_desc')}</p>
-                <span className="price">{t('home.menu_item2_price')}</span>
               </div>
               <div className="menu-item">
                 <h3>{t('home.menu_item3_title')}</h3>
                 <p>{t('home.menu_item3_desc')}</p>
-                <span className="price">{t('home.menu_item3_price')}</span>
               </div>
             </div>
             <Link to="/menu" className="btn-primary">{t('menu.title')}</Link>

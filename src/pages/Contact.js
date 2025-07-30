@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
+import { useLanguage } from '../context/LanguageContext';
 import './Contact.css';
 
 const Contact = () => {
@@ -15,6 +16,7 @@ const Contact = () => {
   const [heroRef, heroInView] = useInView({ threshold: 0.3, triggerOnce: true });
   const [contactRef, contactInView] = useInView({ threshold: 0.3, triggerOnce: true });
   const [infoRef, infoInView] = useInView({ threshold: 0.3, triggerOnce: true });
+  const { t } = useLanguage();
 
   const fadeInUp = {
     hidden: { opacity: 0, y: 60 },
@@ -66,7 +68,7 @@ const Contact = () => {
       {/* Hero Section */}
       <section className="contact-hero" ref={heroRef}>
         <div className="contact-hero-background">
-          <img src="/sepata-steakhouse-restaurant/sepatarestaurant_1751706218_3669900208993574167_65649597383.webp" alt="Contact Us" />
+          <img src="/sepata-steakhouse-restaurant/sepatarestaurant_1752931601_3680179464441162780_65649597383.png" alt="Contact Us" />
           <div className="contact-hero-overlay"></div>
         </div>
         <motion.div 
@@ -75,8 +77,8 @@ const Contact = () => {
           initial="hidden"
           animate={heroInView ? "visible" : "hidden"}
         >
-          <h1>Contact Us</h1>
-          <p>We'd love to hear from you</p>
+          <h1>{t('contact.title')}</h1>
+          <p>{t('contact.subtitle')}</p>
         </motion.div>
       </section>
 
@@ -90,13 +92,13 @@ const Contact = () => {
               initial="hidden"
               animate={contactInView ? "visible" : "hidden"}
             >
-              <h2>Get in Touch</h2>
-              <p>Have a question, feedback, or want to make a special arrangement? We're here to help.</p>
+              <h2>{t('contact.get_in_touch')}</h2>
+              <p>{t('contact.form_description')}</p>
               
               <form onSubmit={handleSubmit} className="contact-form">
                 <div className="form-row">
                   <div className="form-group">
-                    <label htmlFor="name">Full Name *</label>
+                    <label htmlFor="name">{t('contact.name')} *</label>
                     <input
                       type="text"
                       id="name"
@@ -104,11 +106,11 @@ const Contact = () => {
                       value={formData.name}
                       onChange={handleInputChange}
                       required
-                      placeholder="Enter your full name"
+                      placeholder={t('contact.name_placeholder')}
                     />
                   </div>
                   <div className="form-group">
-                    <label htmlFor="email">Email Address *</label>
+                    <label htmlFor="email">{t('contact.email')} *</label>
                     <input
                       type="email"
                       id="email"
@@ -116,25 +118,25 @@ const Contact = () => {
                       value={formData.email}
                       onChange={handleInputChange}
                       required
-                      placeholder="Enter your email"
+                      placeholder={t('contact.email_placeholder')}
                     />
                   </div>
                 </div>
 
                 <div className="form-row">
                   <div className="form-group">
-                    <label htmlFor="phone">Phone Number</label>
+                    <label htmlFor="phone">{t('contact.phone')}</label>
                     <input
                       type="tel"
                       id="phone"
                       name="phone"
                       value={formData.phone}
                       onChange={handleInputChange}
-                      placeholder="+355 XX XXX XXX"
+                      placeholder={t('contact.phone_placeholder')}
                     />
                   </div>
                   <div className="form-group">
-                    <label htmlFor="subject">Subject *</label>
+                    <label htmlFor="subject">{t('contact.subject')} *</label>
                     <select
                       id="subject"
                       name="subject"
@@ -142,18 +144,18 @@ const Contact = () => {
                       onChange={handleInputChange}
                       required
                     >
-                      <option value="">Select a subject</option>
-                      <option value="reservation">Reservation Inquiry</option>
-                      <option value="event">Private Event</option>
-                      <option value="feedback">Feedback</option>
-                      <option value="catering">Catering Services</option>
-                      <option value="other">Other</option>
+                      <option value="">{t('contact.select_subject')}</option>
+                      <option value="reservation">{t('contact.reservation_inquiry')}</option>
+                      <option value="event">{t('contact.private_event')}</option>
+                      <option value="feedback">{t('contact.feedback')}</option>
+                      <option value="catering">{t('contact.catering')}</option>
+                      <option value="other">{t('contact.other')}</option>
                     </select>
                   </div>
                 </div>
 
                 <div className="form-group">
-                  <label htmlFor="message">Message *</label>
+                  <label htmlFor="message">{t('contact.message')} *</label>
                   <textarea
                     id="message"
                     name="message"
@@ -161,12 +163,12 @@ const Contact = () => {
                     onChange={handleInputChange}
                     required
                     rows="6"
-                    placeholder="Tell us how we can help you..."
+                    placeholder={t('contact.message_placeholder')}
                   ></textarea>
                 </div>
 
                 <button type="submit" className="btn-primary submit-btn">
-                  Send Message
+                  {t('contact.send_message')}
                 </button>
               </form>
             </motion.div>
@@ -178,62 +180,56 @@ const Contact = () => {
               animate={contactInView ? "visible" : "hidden"}
             >
               <div className="info-card">
-                <h3>Visit Us</h3>
+                <h3>{t('contact.visit_us')}</h3>
                 <div className="contact-item">
                   <div className="contact-icon">📍</div>
                   <div className="contact-details">
-                    <strong>Address</strong>
+                    <strong>{t('contact.address_label')}</strong>
                     <span>Lungomare, Vlore, Albania</span>
                   </div>
                 </div>
                 <div className="contact-item">
                   <div className="contact-icon">📞</div>
                   <div className="contact-details">
-                    <strong>Phone</strong>
-                    <span>+355 XX XXX XXX</span>
+                    <strong>{t('contact.phone_label')}</strong>
+                    <span>+355 69 209 5155</span>
                   </div>
                 </div>
                 <div className="contact-item">
                   <div className="contact-icon">✉️</div>
                   <div className="contact-details">
-                    <strong>Email</strong>
+                    <strong>{t('contact.email_label')}</strong>
                     <span>info@sepata.al</span>
                   </div>
                 </div>
               </div>
 
               <div className="info-card">
-                <h3>Opening Hours</h3>
+                <h3>{t('contact.opening_hours')}</h3>
                 <div className="hours-list">
                   <div className="hours-item">
-                    <span>Monday - Sunday</span>
-                    <span>12:00 PM - 11:00 PM</span>
+                    <span>{t('contact.monday_sunday')}</span>
+                    <span>{t('contact.hours')}</span>
                   </div>
                   <div className="hours-item">
-                    <span>Kitchen closes</span>
-                    <span>10:30 PM</span>
+                    <span>{t('contact.kitchen_closes')}</span>
+                    <span>{t('contact.kitchen_time')}</span>
                   </div>
-                  <div className="hours-item special">
-                    <span>Happy Hour</span>
-                    <span>5:00 PM - 7:00 PM</span>
-                  </div>
+
                 </div>
               </div>
 
               <div className="info-card">
-                <h3>Follow Us</h3>
+                <h3>{t('contact.follow_us')}</h3>
                 <div className="social-links">
-                  <a href="#" className="social-link" aria-label="Facebook">
-                    <div className="social-icon">📘</div>
-                    <span>Facebook</span>
-                  </a>
-                  <a href="#" className="social-link" aria-label="Instagram">
+
+                  <a href="https://www.instagram.com/sepatarestaurant/" className="social-link" aria-label="Instagram">
                     <div className="social-icon">📷</div>
-                    <span>Instagram</span>
+                    <span>{t('contact.instagram')}</span>
                   </a>
-                  <a href="#" className="social-link" aria-label="TripAdvisor">
+                  <a href="https://www.tripadvisor.com/Restaurant_Review-g678774-d27694011-Reviews-Steak_House_Sepata_Restaurant-Vlore_Vlore_County.html" className="social-link" aria-label="TripAdvisor">
                     <div className="social-icon">🦉</div>
-                    <span>TripAdvisor</span>
+                    <span>{t('contact.tripadvisor')}</span>
                   </a>
                 </div>
               </div>
@@ -251,8 +247,8 @@ const Contact = () => {
             initial="hidden"
             animate={infoInView ? "visible" : "hidden"}
           >
-            <h2>Find Us on the Map</h2>
-            <p>Located in the heart of Lungomare with stunning sea views</p>
+            <h2>{t('contact.find_us_map')}</h2>
+            <p>{t('contact.map_description')}</p>
             
             <div className="map-container">
               <iframe
@@ -269,16 +265,16 @@ const Contact = () => {
             
             <div className="map-info">
               <div className="map-feature">
-                <h4>Easy to Find</h4>
-                <p>Located on the main Lungomare promenade, easily accessible by car or on foot</p>
+                <h4>{t('contact.easy_to_find')}</h4>
+                <p>{t('contact.easy_to_find_desc')}</p>
               </div>
               <div className="map-feature">
-                <h4>Parking Available</h4>
-                <p>Valet parking service and nearby public parking options</p>
+                <h4>{t('contact.parking_available')}</h4>
+                <p>{t('contact.parking_desc')}</p>
               </div>
               <div className="map-feature">
-                <h4>Public Transport</h4>
-                <p>Well connected by local bus routes and taxi services</p>
+                <h4>{t('contact.public_transport')}</h4>
+                <p>{t('contact.transport_desc')}</p>
               </div>
             </div>
           </motion.div>
@@ -294,31 +290,31 @@ const Contact = () => {
             initial="hidden"
             animate={infoInView ? "visible" : "hidden"}
           >
-            <h2>Frequently Asked Questions</h2>
+            <h2>{t('contact.faq_title')}</h2>
             <div className="faq-grid">
               <div className="faq-item">
-                <h4>Do you take reservations?</h4>
-                <p>Yes, we highly recommend making a reservation, especially for dinner service and weekends. You can book online or call us directly.</p>
+                <h4>{t('contact.faq1_q')}</h4>
+                <p>{t('contact.faq1_a')}</p>
               </div>
               <div className="faq-item">
-                <h4>Do you offer vegetarian options?</h4>
-                <p>Absolutely! While we specialize in premium steaks, we have a variety of vegetarian dishes and can accommodate dietary restrictions.</p>
+                <h4>{t('contact.faq2_q')}</h4>
+                <p>{t('contact.faq2_a')}</p>
               </div>
               <div className="faq-item">
-                <h4>Is there a dress code?</h4>
-                <p>We maintain a smart casual dress code. We want our guests to feel comfortable while maintaining the elegant atmosphere of our restaurant.</p>
+                <h4>{t('contact.faq3_q')}</h4>
+                <p>{t('contact.faq3_a')}</p>
               </div>
               <div className="faq-item">
-                <h4>Do you host private events?</h4>
-                <p>Yes, we offer private dining options for special occasions, business meetings, and celebrations. Contact us to discuss your requirements.</p>
+                <h4>{t('contact.faq4_q')}</h4>
+                <p>{t('contact.faq4_a')}</p>
               </div>
               <div className="faq-item">
-                <h4>Do you offer catering services?</h4>
-                <p>We provide catering services for special events. Please contact us in advance to discuss menu options and availability.</p>
+                <h4>{t('contact.faq5_q')}</h4>
+                <p>{t('contact.faq5_a')}</p>
               </div>
               <div className="faq-item">
-                <h4>What payment methods do you accept?</h4>
-                <p>We accept all major credit cards, cash, and mobile payment options for your convenience.</p>
+                <h4>{t('contact.faq6_q')}</h4>
+                <p>{t('contact.faq6_a')}</p>
               </div>
             </div>
           </motion.div>

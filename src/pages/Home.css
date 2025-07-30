@@ -268,13 +268,17 @@
 .cta-content h2 {
   font-size: 3rem;
   margin-bottom: 1rem;
-  color: #fff;
+  color: #ffffff;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.8), 0 0 20px rgba(0, 0, 0, 0.6);
+  font-weight: 700;
 }
 
 .cta-content p {
   font-size: 1.2rem;
   margin-bottom: 2rem;
-  color: #fff;
+  color: #ffffff;
+  text-shadow: 0 0 8px rgba(0, 0, 0, 0.8), 0 0 16px rgba(0, 0, 0, 0.6);
+  font-weight: 500;
 }
 
 .reservation-cta .btn-primary {
@@ -338,7 +342,7 @@
   }
   
   .hero-content {
-    padding: 30px 20px;
+    padding: 10px 20px 30px;
   }
   
   .hero-title {

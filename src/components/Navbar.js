@@ -59,7 +59,7 @@ const Navbar = () => {
             </motion.div>
           ))}
           <div className="mobile-language-switcher">
-            <LanguageSwitcher />
+            <LanguageSwitcher mobile={true} />
           </div>
         </div>
 
